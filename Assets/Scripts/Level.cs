@@ -5,13 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] GameObject ball;
+    //[SerializeField] GameObject ball;
+    [SerializeField] AudioClip backgroundAudio;
+    [SerializeField] AudioClip onSuccessAudio;
+
+    public static GameObject levelObject;
+    private AudioSource audioSource;
 
     private int bricksCount;
 
     private void Start()
     {
         bricksCount = 0;
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null)
+        {
+            audioSource.clip = backgroundAudio;
+            audioSource.Play();
+        }
+
+        levelObject = gameObject;
     }
 
     public void LoadNextScreen()
@@ -49,6 +63,12 @@ public class Level : MonoBehaviour
             rigidBody.angularDrag = 0;
             rigidBody.mass = 0;
             rigidBody.gravityScale = 0;
+
+            //Debug.Log(levelObject);
+            audioSource = levelObject.GetComponent<AudioSource>();
+            audioSource.Stop();
+            audioSource.clip = onSuccessAudio;
+            audioSource.Play(); 
         }
     }
 }
