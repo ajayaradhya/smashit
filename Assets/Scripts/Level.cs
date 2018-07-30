@@ -51,7 +51,7 @@ public class Level : MonoBehaviour
         Debug.Log("+ " + bricksCount);
     }
 
-    public void DecreaseBricks(Collider2D collider)
+    public bool DecreaseBricks(Collider2D collider)
     {
         bricksCount--;
         Debug.Log("- " + bricksCount);
@@ -59,7 +59,7 @@ public class Level : MonoBehaviour
         {
             var rigidBody = collider.GetComponent<Rigidbody2D>();
             var currentVelocity = rigidBody.velocity;
-            rigidBody.velocity = new Vector2(currentVelocity.x/50, currentVelocity.y/50);
+            rigidBody.velocity = new Vector2(currentVelocity.x / 50, currentVelocity.y / 50);
             rigidBody.angularDrag = 0;
             rigidBody.mass = 0;
             rigidBody.gravityScale = 0;
@@ -68,7 +68,16 @@ public class Level : MonoBehaviour
             audioSource = levelObject.GetComponent<AudioSource>();
             audioSource.Stop();
             audioSource.clip = onSuccessAudio;
-            audioSource.Play(); 
+            audioSource.Play();
+
+            ////StartCoroutine(WaitBeforeSucessScreen(4));
+            return true;
         }
+        return false;
+    }
+
+    IEnumerator WaitBeforeSucessScreen(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 }

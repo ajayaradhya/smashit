@@ -15,7 +15,23 @@ public class BlockBehaviour : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource.PlayClipAtPoint(audioClip, transform.position);
+        if(level.GetComponent<Level>().DecreaseBricks(collision.collider))
+        {
+            //all bricks are finished
+            StartCoroutine(WaitBeforeSucessScreen(gameObject, 3f));
+            gameObject.GetComponent<Renderer>().enabled = false;
+            return;
+        }
+
         Destroy(gameObject);
-        level.GetComponent<Level>().DecreaseBricks(collision.collider);
+    }
+
+    IEnumerator WaitBeforeSucessScreen(GameObject gameObject, float seconds)
+    {
+        //print(Time.time);
+        yield return new WaitForSeconds(seconds);
+        level.GetComponent<Level>().LoadStartScreen();
+        Destroy(gameObject);
+        //print(Time.time);
     }
 }
