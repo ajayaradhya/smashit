@@ -2900,6 +2900,16 @@ Prefab:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 271709452}
+    - target: {fileID: 114709751613441306, guid: a55adef3af5bb4d429dc047932c2311f,
+        type: 2}
+      propertyPath: forceY
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709751613441306, guid: a55adef3af5bb4d429dc047932c2311f,
+        type: 2}
+      propertyPath: forceX
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55adef3af5bb4d429dc047932c2311f, type: 2}
   m_IsPrefabAsset: 0
@@ -3450,6 +3460,10 @@ Prefab:
     - target: {fileID: 4995829479675568, guid: a3a2f6ae458948b4ca7700303503f2af, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995829479675568, guid: a3a2f6ae458948b4ca7700303503f2af, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.0375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3a2f6ae458948b4ca7700303503f2af, type: 2}
