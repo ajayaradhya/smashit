@@ -44,6 +44,11 @@ public class Level : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void LoadSuccessScreen()
+    {
+        SceneManager.LoadScene("SuccessScreen");
+    }
+
 
     public void IncreaseBricks()
     {

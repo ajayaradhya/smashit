@@ -30,7 +30,7 @@ public class BlockBehaviour : MonoBehaviour {
     {
         //print(Time.time);
         yield return new WaitForSeconds(seconds);
-        level.GetComponent<Level>().LoadStartScreen();
+        level.GetComponent<Level>().LoadSuccessScreen();
         Destroy(gameObject);
         //print(Time.time);
     }
